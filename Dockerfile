@@ -1,0 +1,7 @@
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt-get install rclone -y
+RUN apt-get install curl -y
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+COPY ./copy.sh .
+RUN chmod +x copy.sh
