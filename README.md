@@ -21,6 +21,8 @@ You will need the following items for this to be successful.
 8. CONTAINER # The name of the container you would like to copy files to
 9. DIRECTION # (UPLOAD/DOWNLOAD) direction in which you want to copy
 
+*DIRECTION* is used to upload or download the files. If you choose upload, it will copy everything from the local machine and copy it to the azure storage account configured. If you choose download, it will download everything to the files directory, which should be mapped to a docker volume.
+
 **This information can be passed into the docker container using an environment file.**
 
 This container requires a volume to be mapped to the files directory in the container. Everything, including directories, mapped to this directory inside the container will be copied to the storage account. Use the docker volume syntax to attach the volume accordingly.
