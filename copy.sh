@@ -1,4 +1,4 @@
-# version 1.4
+# version 1.5
 
 echo "Checking APP_ID environment variable"
 if [ $APP_ID == "" ]; then
@@ -57,7 +57,7 @@ if [ $DIRECTION == "UPLOAD" ]; then
 	rclone lsd backend: | grep $CONTAINER$$ "  DONE"
 
 	echo "Copy all the files to storage account backend"
-	rclone copy ./files backend:$CONTAINER --progress
+	rclone copy /filestore/ backend:$CONTAINER --progress
 
 	echo "LS of storage account backend"
 	rclone ls backend:$CONTAINER
@@ -67,10 +67,10 @@ elif [ $DIRECTION == "DOWNLOAD" ]; then
 	rclone lsd backend: | grep $CONTAINER && echo "  DONE"
 
 	# Copy all the files to the local machine
-	rclone copy backend:$CONTAINER ./files --progress
+	rclone copy backend:$CONTAINER /filestore/ --progress
 
 	# Show all files copied over
-	rclone ls ./files
+	rclone ls /filestore/
 else
     echo "ERROR: no direction defined!"
     exit 1
