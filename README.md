@@ -29,6 +29,12 @@ This container requires a volume to be mapped to the files directory in the cont
 
 This information can be passed into the docker container using an environment file.
 
+Windows:
 ```bash
 docker run --it -v C:/some/file/path:/files--env-file docker.env tpeterson66/rclone-azcli "bash copy.sh"
+```
+
+Linux:
+```bash
+docker run --it -v /home/username/data/filestore:/filestore/ --env-file docker.env tpeterson66/rclone-azcli bash copy.sh
 ```
