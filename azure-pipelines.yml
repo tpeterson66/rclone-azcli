@@ -1,4 +1,12 @@
 # Docker
+- task: Docker@2
+  inputs:
+    repository: 'rclone-azcli'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: |
+      $(Build.BuildId)
+      latest
 # Build a Docker image 
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
