@@ -35,10 +35,11 @@ docker run --it -v C:/some/file/path:/files--env-file docker.env tpeterson66/rcl
 ```
 
 Linux:
+single location
 ```bash
-docker run --it -v /home/username/data/filestore:/filestore/ --env-file docker.env tpeterson66/rclone-azcli bash copy.sh
+docker run --it -v /some/file/path/filestore:/filestore/ --env-file docker.env tpeterson66/rclone-azcli bash copy.sh
 ```
-
+multiple locations
 ```bash
-docker run --it -v /home/username/data/elasticsearch/:/elasticsearch/ -v /home/username/data/redis/:/redis/ --env-file docker.env tpeterson66/rclone-azcli bash copy.sh
+docker run --it -v /some/file/path/:/es/ -v /some/file/path/redis/:/redis/ --env-file docker.env tpeterson66/rclone-azcli bash copy.sh
 ```
