@@ -19,7 +19,7 @@ You will need the following items for this to be successful.
 6. TENANT_ID # The tenant ID where the storage account is located
 7. SUBSCRIPTION_ID # The subscription id where the storage account is located
 8. CONTAINER # The name of the container you would like to copy files to
-9. DIRECTION # (UPLOAD/DOWNLOAD) direction in which you want to copy
+9. DIRECTION # (UPLOAD-SERVICE/UPLOAD-DATADB/DOWNLOAD-SERVICE/DOWNLOAD-DATADB) direction in which you want to copy
 
 *DIRECTION* is used to upload or download the files. If you choose upload, it will copy everything from the local machine and copy it to the azure storage account configured. If you choose download, it will download everything to the files directory, which should be mapped to a docker volume.
 
@@ -29,6 +29,17 @@ This container requires a volume to be mapped to the files directory in the cont
 
 This information can be passed into the docker container using an environment file.
 
+Windows:
 ```bash
 docker run --it -v C:/some/file/path:/files--env-file docker.env tpeterson66/rclone-azcli "bash copy.sh"
+```
+
+Linux:
+single volume
+```bash
+docker run --it -v /some/file/path/filestore/:/filestore/ --env-file docker.env tpeterson66/rclone-azcli bash copy.sh
+```
+multiple volumes
+```bash
+docker run --it -v /some/file/path/es/:/es/ -v /some/file/path/redis/:/redis/ --env-file docker.env tpeterson66/rclone-azcli bash copy.sh
 ```
