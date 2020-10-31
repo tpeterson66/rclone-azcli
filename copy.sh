@@ -95,7 +95,7 @@ elif [ $DIRECTION == "DOWNLOAD-DATADB" ]; then
 	rclone lsd backend: | grep $CONTAINER && echo "  DONE"
 
 	# Copy all the files to the local machine
-    cho "Copy redis and elasticsearch the files to storage account backend"
+    echo "Copy redis and elasticsearch the files to storage account backend"
 	rclone copy backend:$CONTAINER/elasticsearch/ /elasticsearch/ --progress
     rclone copy backend:$CONTAINER/redis/ /redis/ --progress
 
